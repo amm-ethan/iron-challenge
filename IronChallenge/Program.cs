@@ -11,6 +11,9 @@ public class Program
 
         dataToPrint = oldPhone.OldPhonePad("A443355B5 555666096667775C553#");
         Console.WriteLine(dataToPrint);
+
+        dataToPrint = oldPhone.OldPhonePad("22222222222222222222");
+        Console.WriteLine(dataToPrint);
     }
 }
 
@@ -62,7 +65,7 @@ public class OldPhone
 
                 // cycle the data. e.g. for 2, 1st press would be 'a', but 4th press would be also 'a'
                 var innerIndex = pressCount % selectedInputKey.Length == 0
-                    ? pressCount
+                    ? selectedInputKey.Length
                     : pressCount % selectedInputKey.Length;
 
                 var possibleChar = selectedInputKey[innerIndex - 1];
@@ -91,7 +94,7 @@ public class OldPhone
                 lastChar = null;
             }
         }
-        
+
         return string.Join("", resultList);
     }
 }
